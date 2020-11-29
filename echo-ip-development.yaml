@@ -41,5 +41,5 @@ spec:
     protocol: TCP
     targetPort: 80
   selector:
-    app: echo-ip
+    app: echo-ip-freestyle
   type: LoadBalancer
