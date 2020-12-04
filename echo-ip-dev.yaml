@@ -2,13 +2,19 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
+<<<<<<< HEAD:echo-ip-dev.yaml
     app: fs-echo-ip-dev
   name: fs-echo-ip-dev
+=======
+    app: fs-dev-echo-ip
+  name: fs-dev-echo-ip
+>>>>>>> 9a328a192462a56ce0a649e0a02108c88d192696:dev-echo-ip.yaml
   namespace: dev
 spec:
   replicas: 1
   selector:
     matchLabels:
+<<<<<<< HEAD:echo-ip-dev.yaml
       app: fs-echo-ip-dev
   template:
     metadata:
@@ -18,6 +24,17 @@ spec:
       containers:
       - image: 192.168.1.10:8443/echo-ip
         name: fs-echo-ip-dev
+=======
+      app: fs-dev-echo-ip
+  template:
+    metadata:
+      labels:
+        app: fs-dev-echo-ip
+    spec:
+      containers:
+      - image: 192.168.1.10:8443/echo-ip
+        name: fs-dev-echo-ip
+>>>>>>> 9a328a192462a56ce0a649e0a02108c88d192696:dev-echo-ip.yaml
         readinessProbe:
           failureThreshold: 3
           httpGet:
@@ -32,8 +49,13 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
+<<<<<<< HEAD:echo-ip-dev.yaml
     app: fs-echo-ip-dev
   name: fs-echo-ip-dev-svc 
+=======
+    app: fs-dev-echo-ip
+  name: fs-dev-echo-ip-svc
+>>>>>>> 9a328a192462a56ce0a649e0a02108c88d192696:dev-echo-ip.yaml
   namespace: dev
 spec:
   ports:
@@ -41,5 +63,9 @@ spec:
     protocol: TCP
     targetPort: 80
   selector:
+<<<<<<< HEAD:echo-ip-dev.yaml
     app: fs-echo-ip-dev
+=======
+    app: fs-dev-echo-ip
+>>>>>>> 9a328a192462a56ce0a649e0a02108c88d192696:dev-echo-ip.yaml
   type: LoadBalancer
